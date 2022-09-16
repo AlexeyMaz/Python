@@ -13,7 +13,7 @@ while is_file_opened == False:
         inp = open(fname, "r")
         is_file_opened = True
     except FileNotFoundError:
-        fname = input("Файл не найден. Введите название файла заново: ")
+        fname = input("Файл не найден. Введите название файла заново: ") + ".txt"
 
 words = ''
 strings = inp.readlines()
