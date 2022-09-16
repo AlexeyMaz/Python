@@ -13,19 +13,17 @@ while is_file_opened == False:
         inp = open(fname, "r")
         is_file_opened = True
     except FileNotFoundError:
-        fname = inp("Файл не найден. Введите название файла заново:\n")
+        fname = input("Файл не найден. Введите название файла заново: ")
 
+words = ''
 strings = inp.readlines()
 for str in strings:
-    if str == "\n":
-        strings.remove(str)
-    else:
-        #strings.remove(str)
-        #str.split()
-        str.replace(str, str.split())
+    if str != "\n":
+        words += str.rstrip() + " "
 inp.close()
 
-max = len(strings[0])
+words = words.split()
+max = len(words[0])
 for word in words:
     if len(word) > max:
         max = len(word)
