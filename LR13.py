@@ -19,8 +19,17 @@ class Cat():
     def meow(self):
         print(f"{self.name} говорит 'мяу'")
 
-tiger = Animal("oleg")
-print(tiger.name)
-tiger.name = "akakiy"
-tiger.eat()
-tiger.makeNoise()
+class stringVar():
+    def __init__(self, input_string):
+        self.__pr_string = input_string
+
+    def getString(self):
+        return self.__pr_string
+    def setString(self, input_string):
+        self.__pr_string = input_string
+    string = property(getString, setString)
+
+line = stringVar("oleg + egor = ???")
+print(line.string)
+line.string = "oleg + egor = nothing"
+print(line.string)
