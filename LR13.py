@@ -5,8 +5,8 @@ class Animal():
 
     def eat(self):
         print("Намнём")
-    def makeNoise(self):
-        print(f"{self.__pr_name} говорит Гррр")
+    def makeNoise(self, noise):
+        print(f"{self.__pr_name} говорит {noise}")
 
     def setName(self, new_name):
         self.__pr_name = new_name
@@ -14,10 +14,13 @@ class Animal():
         return self.__pr_name
     name = property(getName, setName)
 
-class Cat():
-    name, color, weight = "", "", 0
+class Cat(Animal):
+    def __init__(self, input_name):
+        Animal.__init__(self, input_name)
+        print("Родился кот")
+    color, weight = "", 0
     def meow(self):
-        print(f"{self.name} говорит 'мяу'")
+        Animal.makeNoise(self, "мяу")
 
 class stringVar():
     def __init__(self, input_string):
@@ -45,6 +48,5 @@ class Point:
         from math import sqrt
         return sqrt((self.x - p.x)**2 + (self.y - p.y)**2)
 
-p = Point(0, 0)
-q = Point(1, 1)
-print(p.dist(q))
+cat = Cat("vasya")
+cat.meow()
