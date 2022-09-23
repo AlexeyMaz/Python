@@ -1,4 +1,13 @@
-# Задание 5 Кубики. Аня и Боря любят играть в разноцветные кубики,
+def task_1():
+# Задание 1. Количество различных чисел. Дан список чисел. Определите, сколько в нем встречается различных чисел.
+    print(len(set([input() for i in range(int(input("Введите кол-во элементов: ")))])))
+
+def print_set_info(set_tmp):
+    print(len(set_tmp))
+    print(sorted(set_tmp))
+
+def task_5():
+# Задание 5. Кубики. Аня и Боря любят играть в разноцветные кубики,
 # причем у каждого из них свой набор и в каждом наборе все кубики различны
 # по цвету. Однажды дети заинтересовались, сколько существуют цветов таких,
 # что кубики каждого цвета присутствуют в обоих наборах. Для этого они
@@ -13,20 +22,17 @@
 # кубиков, которые есть только у Бори. Для каждого из множеств выведите
 # сначала количество элементов в нем, а затем сами элементы, отсортированные
 # по возрастанию.
+    print("Введите N и M:")
+    n, m = [int(i) for i in input().split()]
 
-def print_set_info(set_tmp):
-    print(len(set_tmp))
-    print(sorted(set_tmp))
+    print("Введите номера цветов кубиков Ани:")
+    a_set = set([int(input()) for i in range(n)])
+    print("Введите номера цветов кубиков Бори:")
+    b_set = set([int(input()) for i in range(m)])
 
-print("Введите N и M:")
-n, m = [int(i) for i in input().split()]
+    print("")
+    print_set_info(a_set.intersection(b_set))
+    print_set_info(a_set.difference(b_set))
+    print_set_info(b_set.difference(a_set))
 
-print("Введите номера цветов кубиков Ани:")
-a_set = set([int(input()) for i in range(n)])
-print("Введите номера цветов кубиков Бори:")
-b_set = set([int(input()) for i in range(m)])
-
-print("")
-print_set_info(a_set.intersection(b_set))
-print_set_info(a_set.difference(b_set))
-print_set_info(b_set.difference(a_set))
+task_1()
