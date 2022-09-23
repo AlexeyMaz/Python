@@ -4,7 +4,7 @@ class Animal():
         print(f"Родилось животное {self.__pr_name} ")
 
     def eat(self):
-        print("Намнём")
+        print("ням-ням")
     def makeNoise(self, noise):
         print(f"{self.__pr_name} говорит {noise}")
 
@@ -56,5 +56,21 @@ class Point:
         from math import sqrt
         return sqrt((self.x - p.x)**2 + (self.y - p.y)**2)
 
-dog = Dog("sharik")
-dog.woof()
+cat = Cat("")
+cat.setName("vasya")
+cat.eat()
+cat.meow()
+dog1 = Dog("")
+dog1.setName("oleg")
+dog1.eat()
+dog1.woof()
+dog2 = Dog("")
+dog2.setName("egor")
+dog2.eat()
+dog2.woof()
+animal = Animal("")
+animal.setName("base")
+animal.eat()
+animal.makeNoise("БАЗА")
+
+
