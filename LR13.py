@@ -14,6 +14,14 @@ class Animal():
         return self.__pr_name
     name = property(getName, setName)
 
+class Dog(Animal):
+    def __init__(self, input_name):
+        Animal.__init__(self, input_name)
+        print("Родилась собака")
+
+    def woof(self):
+        Animal.makeNoise(self, "гав")
+
 class Cat(Animal):
     def __init__(self, input_name):
         Animal.__init__(self, input_name)
@@ -48,5 +56,5 @@ class Point:
         from math import sqrt
         return sqrt((self.x - p.x)**2 + (self.y - p.y)**2)
 
-cat = Cat("vasya")
-cat.meow()
+dog = Dog("sharik")
+dog.woof()
