@@ -11,7 +11,6 @@ def task_8():
     for latin_word, eng_translations in sorted(latin_to_eng.items()):
         print(latin_word + ' - ' + ', '.join(eng_translations))
 
-
 def task_9():
     # Задание 9. Контрольная по ударениям. Учительница задала Пете
     # домашнее задание — в заданном тексте расставить ударения в словах, после
@@ -53,4 +52,30 @@ def task_9():
     print("Кол-во ошибок в Петином тексте:", errors, end='\n')
 
 
-task_8()
+def IsAncestor(man, older_man, tree):
+    if man == older_man:
+        return True
+    while man in tree:
+        man = tree[man]
+        if man == older_man:
+            return True
+    return False
+
+def task_12():
+    p_tree = dict()
+    n = int(input())
+    for i in range(n - 1):
+        child, parent = input().split()
+        p_tree[child] = parent
+
+    for i in range(int(input())):
+        first, second = input().split()
+        if IsAncestor(second, first, p_tree):
+            print(1, end=' ')
+        elif IsAncestor(first, second, p_tree):
+            print(2, end=' ')
+        else:
+            print(0, end=' ')
+
+
+task_12()
