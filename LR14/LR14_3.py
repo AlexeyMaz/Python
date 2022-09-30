@@ -15,9 +15,6 @@ html_template2 = """.</p>
 """
 
 
-# <p>Default code has been loaded into the Editor.</p>
-
-
 def save_file_as_txt():
     try:
         path = filedialog.asksaveasfile(filetypes=(("Text files", "*.txt"), ("All files", "*.*"))).name
