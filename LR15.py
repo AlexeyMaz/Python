@@ -88,20 +88,46 @@ def add_table_data(con, tbl_name):
     con.commit()
 
 
-def delete_table_data(con, tbl_name):
-    cursorObj = con.cursor()
-    cursorObj.execute(f'DROP TABLE {tbl_name}')
-
-
 def print_table_data(con, tbl_name):
     cursorObj = con.cursor()
     cursorObj.execute(f'SELECT * FROM {tbl_name}')
     [print(row) for row in cursorObj.fetchall()]
 
 
+def select(con):
+    cursorObj = con.cursor()
+    cursorObj.execute("SELECT name FROM sqlite_master WHERE type='table'")
+    table = cursorObj.fetchall()
+
+    tablesList = []
+    for tab in table:
+        tablesList.append(tab[0])
+
+    for listItem in tablesList:
+        print(f"Вывод содержимого таблицы {listItem}")
+        cursorObj.execute(f'SELECT * from {listItem}')
+        [print(row) for row in cursorObj.fetchall()]
+        print()
+
+
+def sql_update(con):
+    cursorObj = con.cursor()
+    cursorObj.execute('UPDATE Cargoes SET destination = "Космонавтов,15" where destination = "Крылатая,6"')
+    cursorObj.execute('UPDATE Drivers SET '
+                      'surname = "Войсковой", name = "Иван",lastname = "Вениаминович" where id = 4')
+    cursorObj.execute('UPDATE Customers SET dispatcher_id = 3 where customer_id = 5')
+    con.commit()
+
+
+def sql_delete(con):
+    cursorObj = con.cursor()
+    cursorObj.execute('DELETE from Customers where customer_id = 3')
+    con.commit()
+
+
 connection = sql_connection()
-cur = connection.cursor()
-cur.execute('DROP TABLE Cargoes')
 tables_create(connection)
-add_table_data(connection, 'Cargoes')
-add_table_data(connection, 'CustomersCargoes')
+sql_update(connection)
+sql_delete(connection)
+select(connection)
+connection.close()
