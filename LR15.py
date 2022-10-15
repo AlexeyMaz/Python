@@ -4,115 +4,80 @@ from sqlite3 import Error
 
 def sql_connection():
     try:
-        con = sqlite3.connect('mydatabase.db')
+        con = sqlite3.connect('Shipping.db')
         return con
     except Error:
         print(Error)
 
 
-# def tables_create(con):
-#     dispatchers_create(con)
-#     customers_create(con)
-#     drivers_create(con)
-#     cargoes_create(con)
-#     customers_cargoes_create(con)
+def tables_create(con):
+    dispatchers_create(con)
+    customers_create(con)
+    drivers_create(con)
+    cargoes_create(con)
+    customers_cargoes_create(con)
 
-def sql_table(con):
+
+def dispatchers_create(con):
     cursorObj = con.cursor()
-    cursorObj.execute("CREATE TABLE if not exists employees(id integer PRIMARY KEY, name text, salary\
-                    real, department\
-                    text, position\
-                    text, hireDate\
-                    text)")
+    cursorObj.execute(
+        "CREATE TABLE if not exists Dispatchers("
+        "id integer PRIMARY KEY AUTOINCREMENT,"
+        "surname text,"
+        "name text,"
+        "lastname text,"
+        "hireDate text)")
     con.commit()
 
 
-def sql_faculties(con):
+def customers_create(con):
     cursorObj = con.cursor()
     cursorObj.execute(
-        "CREATE TABLE Faculties("
-        "FacultyID integer PRIMARY KEY,"
-        "FacultyName text,"
-        "Descript text)")
-
-    cursorObj.execute(
-        "INSERT INTO Faculties "
-        "VALUES(1, 'ФКТиПМ', 'Факультет питона')"
-    )
-    cursorObj.execute(
-        "INSERT INTO Faculties "
-        "VALUES(2, 'РГФ', 'Гуманитарии')"
-    )
-
-    cursorObj.execute(
-        "INSERT INTO Faculties "
-        "VALUES(3, 'Журфак', 'Бесполезнарии')"
-    )
+        "CREATE TABLE if not exists Customers("
+        "id integer PRIMARY KEY AUTOINCREMENT,"
+        "customer_id integer,"
+        "dispatcher_id integer,"
+        "coworkTime text)")
     con.commit()
 
 
-def sql_specialities(con):
+def drivers_create(con):
     cursorObj = con.cursor()
     cursorObj.execute(
-        "CREATE TABLE Specialties("
-        "SpecialtyID integer PRIMARY KEY,"
-        "FacultyID integer,"
-
-        "SpecialtyName text,"
-        "SpecialtyCode integer,"
-        "Descript text)")
+        "CREATE TABLE if not exists Drivers("
+        "id integer PRIMARY KEY AUTOINCREMENT,"
+        "surname text,"
+        "name text,"
+        "lastname text,"
+        "hireDate text)")
     con.commit()
 
 
-def sql_sets(con):
+def cargoes_create(con):
     cursorObj = con.cursor()
     cursorObj.execute(
-        "CREATE TABLE Sets(SetID integer PRIMARY KEY,"
-        "SpecialtyID integer,"
-
-        "SetName text,"
-        "SetYear text)")
+        "CREATE TABLE if not exists Cargoes("
+        "id integer PRIMARY KEY AUTOINCREMENT,"
+        "cargo_id integer,"
+        "driver_id integer,"
+        "destination text,"
+        "weight real)")
     con.commit()
 
 
-def sql_teach_form(con):
+def customers_cargoes_create(con):
     cursorObj = con.cursor()
     cursorObj.execute(
-        "CREATE TABLE TeachForm("
-        "TeachFormID integer PRIMARY KEY,"
-        "Descript text)")
-    con.commit()
-
-
-def sql_groups(con):
-    cursorObj = con.cursor()
-    cursorObj.execute(
-        "CREATE TABLE Groups("
-        "GroupID integer PRIMARY KEY,"
-
-        "TeachFormID integer,"
-
-        "GroupName text)")
-    con.commit()
-
-
-def sql_students(con):
-    cursorObj = con.cursor()
-    cursorObj.execute(
-        "CREATE TABLE Students("
-        "StudentID integer PRIMARY KEY,"
-        "GroupID integer,"
-
-        "Surname text,"
-        "Firstname text,"
-        "Lastname text,"
-        "Phone text)")
+        "CREATE TABLE if not exists CustomersCargoes("
+        "id integer PRIMARY KEY AUTOINCREMENT,"
+        "customer_id integer,"
+        "cargo_id integer)")
     con.commit()
 
 
 def add_table_data(con, tbl_name):
     cursorObj = con.cursor()
-    # andrew 3 dskfksd dsfkks 03.12
+
     for i in range(int(input("Введите кол-во записей, которые хотите добавить: "))):
         row = input("Введите данные о записи через пробел\n").split()
         fields = ""
@@ -126,7 +91,6 @@ def add_table_data(con, tbl_name):
 def delete_table_data(con, tbl_name):
     cursorObj = con.cursor()
     cursorObj.execute(f'DROP TABLE {tbl_name}')
-    # con.commit()
 
 
 def print_table_data(con, tbl_name):
@@ -136,6 +100,8 @@ def print_table_data(con, tbl_name):
 
 
 connection = sql_connection()
-sql_table(connection)
-# delete_table_data(connection, 'employees')
-add_table_data(connection, 'employees')
+cur = connection.cursor()
+cur.execute('DROP TABLE Cargoes')
+tables_create(connection)
+add_table_data(connection, 'Cargoes')
+add_table_data(connection, 'CustomersCargoes')
