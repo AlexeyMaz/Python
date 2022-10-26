@@ -10,6 +10,7 @@ class Fraction:
             self.fr_down = args[2]
         else:
             print("А аргументы будут???")
+            quit()
 
         if self.fr_down <= 0:
             self.fr_down = 1
@@ -84,5 +85,5 @@ f2 = Fraction(1, 5, 9)
 print(f1)
 print(f2)
 print(f"{f1} + {f2} = {f1 + f2}")
-print(f1 - f2)
-print(f1 * f2)
+print(f"{f1} - {f2} = {f1 - f2}")
+print(f"{f1} * {f2} = {f1 * f2}")

@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f989479c-14c7-4dcd-8ea7-26738bb971b3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LR16/LR16.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/_wall.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/cookie.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/form.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/hello.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/wall.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR15.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR15.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IZ/IZ2_2/IZ2_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/IZ/IZ2_2/IZ2_2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -38,18 +46,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Al Maz/PycharmProjects/Python&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "full.screen.before.presentation.mode": "false",
+    "last_opened_file_path": "C:/Users/Al Maz/PycharmProjects/Python",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Al Maz\PycharmProjects\Python\LR16\cgi-bin" />
+      <recent name="C:\Users\Al Maz\PycharmProjects\Python\LR16" />
       <recent name="C:\Users\Al Maz\PycharmProjects\Python\LR14" />
     </key>
   </component>
