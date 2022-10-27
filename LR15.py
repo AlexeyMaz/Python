@@ -4,7 +4,7 @@ from sqlite3 import Error
 
 def sql_connection():
     try:
-        con = sqlite3.connect('Shipping.db')
+        con = sqlite3.connect('C:/Users/Al Maz/PycharmProjects/Python/Shipping.db')
         return con
     except Error:
         print(Error)
@@ -92,6 +92,11 @@ def print_table_data(con, tbl_name):
     cursorObj = con.cursor()
     cursorObj.execute(f'SELECT * FROM {tbl_name}')
     [print(row) for row in cursorObj.fetchall()]
+    cursorObj1 = con.cursor()
+    cursorObj1.execute('DELETE from Dispatchers where id = 2')
+    con.commit()
+    cursorObj.execute(f'SELECT * FROM {tbl_name}')
+    [print(row) for row in cursorObj1.fetchall()]
 
 
 def select(con):
@@ -121,13 +126,5 @@ def sql_update(con):
 
 def sql_delete(con):
     cursorObj = con.cursor()
-    cursorObj.execute('DELETE from Customers where customer_id = 3')
+    cursorObj.execute('DELETE from Dispatchers where id = 3')
     con.commit()
-
-
-connection = sql_connection()
-tables_create(connection)
-sql_update(connection)
-sql_delete(connection)
-select(connection)
-connection.close()

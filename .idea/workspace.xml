@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f989479c-14c7-4dcd-8ea7-26738bb971b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LR16/LR16.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/_wall.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/cookie.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/form.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/hello.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LR16/cgi-bin/wall.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IZ/IZ2_2/IZ2_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/IZ/IZ2_2/IZ2_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR15.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR15.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR16/LR16.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR16/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/cookies.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR16/cgi-bin/form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/LR16/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/users.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/wall.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shipping.db" beforeDir="false" afterPath="$PROJECT_DIR$/Shipping.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +53,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "full.screen.before.presentation.mode": "false",
     "last_opened_file_path": "C:/Users/Al Maz/PycharmProjects/Python",
     "settings.editor.selected.configurable": "preferences.lookFeel"
@@ -59,8 +61,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Al Maz\PycharmProjects\Python\LR16\cgi-bin" />
       <recent name="C:\Users\Al Maz\PycharmProjects\Python\LR16" />
+      <recent name="C:\Users\Al Maz\PycharmProjects\Python\LR16\cgi-bin" />
       <recent name="C:\Users\Al Maz\PycharmProjects\Python\LR14" />
     </key>
   </component>

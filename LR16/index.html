@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Выбор таблицы</title>
+    </head>
+    <body>
+        <form action="/cgi-bin/form.py">
+            <h3>С какой таблицей Вы хотите взаимодействовать?</h3>
+            <p><select name="table_list">
+                <option></option>
+                <option>Cargoes</option>
+                <option>Customers</option>
+                <option>CustomersCargoes</option>
+                <option>Dispatchers</option>
+                <option>Drivers</option>
+            </select></p>
+            <p><input type="submit" value="Отправить"></p>
+        </form>
+    </body>
+</html>
