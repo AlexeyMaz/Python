@@ -30,15 +30,26 @@ print(f"""<!DOCTYPE HTML>
                         <option>Вывести все записи</option>
                     </select></p>
                     <p><input type="submit" value="Отправить"></p>
-                </form>""")
+                """)
 
 # if form.getvalue('act_list') is not None:
 connection = sql_connection()
 table_str = '<table><tr>\n'
+
 act = form.getvalue('act_list')
+if form.getvalue('act_list') is not None:  # запись в файл
+    act = form.getvalue('act_list')
+    file = open("cgi-bin/option.txt", "w")
+    file.write(form.getvalue('act_list'))
+    file.close()
+else:
+    inp = open("cgi-bin/option.txt", "r")
+    act = inp.readline()
+    inp.close()
+
 if act is not None:
     if act == 'Добавить запись':
-        print("""<form action="/cgi-bin/form.py">
+        print("""
                 Введите данные новой записи через пробел: <input type="text" name="new_tran">
                 <p><input type="submit" value="Отправить"></p>
                     <style>
@@ -49,18 +60,29 @@ if act is not None:
                     </style>
                </form>
         """)
+
         cursorObj = connection.cursor()
+        cursor = connection.cursor()
         row = form.getfirst("new_tran").split()
-        print(f"""{row}""")
-        fields = ""
-        for j in range(len(row)):
-            fields += '?, '
-        fields = fields[:-2]
-        cursorObj.execute(f'INSERT INTO {tbl_name} VALUES(null, {fields})', row)
-        connection.commit()
-        # Прав Левонбаум Антонович 2015-04-19
-        print(f"""{row}
-                     """)
+        cursor.execute(f'SELECT * FROM {tbl_name}')  # имя таблицы можно хранить в файле
+        headers = [description[0] for description in cursor.description]
+
+        if len(row) < len(headers) - 1 or len(row) >= len(headers):
+            print("""Было введено неверное число аргументов -> запись не добавлена в таблицу""")
+        elif len(row) == len(headers) - 1:
+
+            fields = ""
+            for j in range(len(row)):
+                fields += '?, '
+            fields = fields[:-2]
+            cursorObj.execute(f'INSERT INTO {tbl_name} VALUES(null, {fields})', row)
+            connection.commit()
+            print("""запись успешно добавлена в таблицу""")
+
+        file = open("cgi-bin/option.txt", "w")
+        file.write('None')
+        file.close()
+
     if act == 'Вывести все записи':
         cursor = connection.cursor()
         cursor.execute(f'SELECT * FROM {tbl_name}')  # имя таблицы можно хранить в файле
@@ -92,5 +114,9 @@ if act is not None:
         </style>"""
         print(table_str)
         print('</table>')
+        file = open("cgi-bin/option.txt", "w")
+        file.write('None')
+        file.close()
+
 print("""</body>
-     </html>""")
+         </html>""")

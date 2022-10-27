@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/LR16/cgi-bin/option.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/LR16/cgi-bin/table.txt" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/LR16/table.txt" charset="windows-1251" />
   </component>
 </project>
