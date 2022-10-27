@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f989479c-14c7-4dcd-8ea7-26738bb971b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LR15.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR15.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR16/LR16.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR16/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/cookies.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR16/cgi-bin/form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/LR16/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/users.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/wall.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/table.txt" beforeDir="false" afterPath="$PROJECT_DIR$/LR16/cgi-bin/table.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shipping.db" beforeDir="false" afterPath="$PROJECT_DIR$/Shipping.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,18 +42,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "full.screen.before.presentation.mode": "false",
-    "last_opened_file_path": "C:/Users/Al Maz/PycharmProjects/Python",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Al Maz/PycharmProjects/Python&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Al Maz\PycharmProjects\Python\LR16" />

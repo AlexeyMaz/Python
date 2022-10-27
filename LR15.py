@@ -128,3 +128,5 @@ def sql_delete(con):
     cursorObj = con.cursor()
     cursorObj.execute('DELETE from Dispatchers where id = 3')
     con.commit()
+
+

@@ -8,7 +8,7 @@ if form.getvalue('table_list') is not None:  # запись в файл
     file = open("cgi-bin/table.txt", "w")
     file.write(form.getvalue('table_list'))
 else:
-    inp = open("C:/Users/Al Maz/PycharmProjects/Python/LR16/cgi-bin/table.txt", "r")
+    inp = open("cgi-bin/table.txt", "r")
     tbl_name = inp.read()
     inp.close()
 
@@ -29,13 +29,38 @@ print(f"""<!DOCTYPE HTML>
                         <option>Удалить запись</option>
                         <option>Вывести все записи</option>
                     </select></p>
-                <p><input type="submit" value="Отправить"></p>
+                    <p><input type="submit" value="Отправить"></p>
                 </form>""")
 
+# if form.getvalue('act_list') is not None:
 connection = sql_connection()
 table_str = '<table><tr>\n'
 act = form.getvalue('act_list')
 if act is not None:
+    if act == 'Добавить запись':
+        print("""<form action="/cgi-bin/form.py">
+                Введите данные новой записи через пробел: <input type="text" name="new_tran">
+                <p><input type="submit" value="Отправить"></p>
+                    <style>
+                    input[type="text"] 
+                    {
+                        width: 300px;
+                    }
+                    </style>
+               </form>
+        """)
+        cursorObj = connection.cursor()
+        row = form.getfirst("new_tran").split()
+        print(f"""{row}""")
+        fields = ""
+        for j in range(len(row)):
+            fields += '?, '
+        fields = fields[:-2]
+        cursorObj.execute(f'INSERT INTO {tbl_name} VALUES(null, {fields})', row)
+        connection.commit()
+        # Прав Левонбаум Антонович 2015-04-19
+        print(f"""{row}
+                     """)
     if act == 'Вывести все записи':
         cursor = connection.cursor()
         cursor.execute(f'SELECT * FROM {tbl_name}')  # имя таблицы можно хранить в файле
