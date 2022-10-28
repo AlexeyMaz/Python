@@ -83,6 +83,47 @@ if act is not None:
         file.write('None')
         file.close()
 
+    if act == 'Обновить запись':
+        print("""
+                        Введите id записи, которую хотите обновить: <input type="text" name="id"><br /><br />
+                        Введите обновленные данные записи через пробел: <input type="text" name="update_tran">
+                        <p><input type="submit" value="Отправить"></p>
+                            <style>
+                            input[name="update_tran"] 
+                            {
+                                width: 300px;
+                            }
+                            input[name="id"]
+                            {
+                                width:50px;
+                            }
+                            </style>
+                       </form>
+                """)
+
+        cursorObj = connection.cursor()
+        update_id = form.getfirst("id")
+        row = form.getfirst("update_tran").split()
+        cursorObj.execute(f'SELECT * FROM {tbl_name}')
+        headers = [description[0] for description in cursorObj.description]
+
+        sql_str = 'UPDATE ' + tbl_name + ' SET '
+
+        if len(row) < len(headers) - 1 or len(row) >= len(headers):
+            print("""Было введено неверное число аргументов -> запись не добавлена в таблицу""")
+        elif len(row) == len(headers) - 1:
+            for i in range(len(row)):
+                sql_str += headers[i + 1] + ' = "' + row[i] + '", '
+            sql_str = sql_str[:-2]
+            sql_str += ' where id = ' + str(update_id)
+            cursorObj.execute(sql_str)
+            connection.commit()
+            print("запись успешно изменена")
+
+        file = open("cgi-bin/option.txt", "w")
+        file.write('None')
+        file.close()
+
     if act == 'Вывести все записи':
         cursor = connection.cursor()
         cursor.execute(f'SELECT * FROM {tbl_name}')  # имя таблицы можно хранить в файле
