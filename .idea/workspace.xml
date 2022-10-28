@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f989479c-14c7-4dcd-8ea7-26738bb971b3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR15.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR15.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR16/cgi-bin/form.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/option.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/table.txt" beforeDir="false" />
@@ -91,13 +92,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/LR16/cgi-bin/form.py</url>
-          <line>118</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

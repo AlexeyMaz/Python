@@ -92,11 +92,6 @@ def print_table_data(con, tbl_name):
     cursorObj = con.cursor()
     cursorObj.execute(f'SELECT * FROM {tbl_name}')
     [print(row) for row in cursorObj.fetchall()]
-    cursorObj1 = con.cursor()
-    cursorObj1.execute('DELETE from Dispatchers where id = 2')
-    con.commit()
-    cursorObj.execute(f'SELECT * FROM {tbl_name}')
-    [print(row) for row in cursorObj1.fetchall()]
 
 
 def select(con):

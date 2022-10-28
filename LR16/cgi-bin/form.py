@@ -2,6 +2,18 @@
 import cgi
 from LR15 import *
 
+
+def id_find(con, req_id):
+    curs = con.cursor()
+    curs.execute(f'SELECT * FROM {tbl_name}')
+    cc = curs.fetchall()
+    for d in range(len(cc)):
+        if cc[d][0] == req_id:
+            return True
+
+    return False
+
+
 form = cgi.FieldStorage()
 if form.getvalue('table_list') is not None:  # запись в файл
     tbl_name = form.getvalue('table_list')
@@ -20,6 +32,9 @@ print(f"""<!DOCTYPE HTML>
                 <title>Работа с таблицей {tbl_name}</title>
             </head>
             <body>
+                <form action="/index.html">
+                    <p><input type="submit" value="Вернуться к выбору таблицы"></p>
+                </form>
                 <form action="/cgi-bin/form.py">
                     <h3>Что Вы хотите сделать с таблицей {tbl_name}?</h3>
                     <p><select name="act_list">
@@ -85,7 +100,7 @@ if act is not None:
 
     if act == 'Обновить запись':
         print("""
-                        Введите id записи, которую хотите обновить: <input type="text" name="id"><br /><br />
+                        Введите id записи, которую хотите обновить: <input type="text" name="update_id"><br /><br />
                         Введите обновленные данные записи через пробел: <input type="text" name="update_tran">
                         <p><input type="submit" value="Отправить"></p>
                             <style>
@@ -93,7 +108,7 @@ if act is not None:
                             {
                                 width: 300px;
                             }
-                            input[name="id"]
+                            input[name="update_id"]
                             {
                                 width:50px;
                             }
@@ -102,16 +117,19 @@ if act is not None:
                 """)
 
         cursorObj = connection.cursor()
-        update_id = form.getfirst("id")
+        update_id = int(form.getfirst("update_id"))
         row = form.getfirst("update_tran").split()
         cursorObj.execute(f'SELECT * FROM {tbl_name}')
         headers = [description[0] for description in cursorObj.description]
 
+        find = id_find(connection, update_id)
         sql_str = 'UPDATE ' + tbl_name + ' SET '
 
         if len(row) < len(headers) - 1 or len(row) >= len(headers):
-            print("""Было введено неверное число аргументов -> запись не добавлена в таблицу""")
-        elif len(row) == len(headers) - 1:
+            print('Было введено неверное число аргументов -> запись не добавлена в таблицу')
+        elif not find:
+            print('не существует записи с таким id')
+        elif len(row) == len(headers) - 1 and find:
             for i in range(len(row)):
                 sql_str += headers[i + 1] + ' = "' + row[i] + '", '
             sql_str = sql_str[:-2]
@@ -124,22 +142,49 @@ if act is not None:
         file.write('None')
         file.close()
 
-    if act == 'Вывести все записи':
-        cursor = connection.cursor()
-        cursor.execute(f'SELECT * FROM {tbl_name}')  # имя таблицы можно хранить в файле
-        headers = [description[0] for description in cursor.description]
-        for i in range(len(headers)):
-            table_str += '<th>' + headers[i] + '</th>'
-        table_str += '</tr>\n\n'
+    if act == 'Удалить запись':
+        print("""
+                        Введите id записи, которую хотите удалить: <input type="text" name="delete_id">
+                        <p><input type="submit" value="Отправить"></p>
+                            <style>
+                            input[name="delete_id"]
+                            {
+                                width:50px;
+                            }
+                            </style>
+                       </form>
+                """)
 
-        for row in cursor.fetchall():
-            table_str += '<tr>\n'
-            tmp = list(row)
-            for i in range(len(tmp)):
-                table_str += '<td>' + str(tmp[i]) + '</td>'
-            table_str += '</tr>\n'
+        cursorObj = connection.cursor()
+        delete_id = int(form.getfirst("delete_id"))
+        find = id_find(connection, delete_id)
+        if find:
+            cursorObj.execute(f'DELETE from {tbl_name} where id = {delete_id}')
+            connection.commit()
+            print("запись успешно удалена")
+        else:
+            print('не существует записи с таким id')
 
-        table_str += """<style>table {
+    file = open("cgi-bin/option.txt", "w")
+    file.write('None')
+    file.close()
+
+if act == 'Вывести все записи':
+    cursor = connection.cursor()
+    cursor.execute(f'SELECT * FROM {tbl_name}')  # имя таблицы можно хранить в файле
+    headers = [description[0] for description in cursor.description]
+    for i in range(len(headers)):
+        table_str += '<th>' + headers[i] + '</th>'
+    table_str += '</tr>\n\n'
+
+    for row in cursor.fetchall():
+        table_str += '<tr>\n'
+        tmp = list(row)
+        for i in range(len(tmp)):
+            table_str += '<td>' + str(tmp[i]) + '</td>'
+        table_str += '</tr>\n'
+
+    table_str += """<style>table {
            border: 1px solid grey;
            border-collapse: collapse;
             }
@@ -153,11 +198,11 @@ if act is not None:
             }
         </table>
         </style>"""
-        print(table_str)
-        print('</table>')
-        file = open("cgi-bin/option.txt", "w")
-        file.write('None')
-        file.close()
+    print(table_str)
+    print('</table>')
+    file = open("cgi-bin/option.txt", "w")
+    file.write('None')
+    file.close()
 
 print("""</body>
          </html>""")
