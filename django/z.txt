@@ -1,0 +1,4 @@
+cd C:\Users\Al Maz\PycharmProjects\Python\django
+.venv\Scripts\activate
+cd C:\Users\Al Maz\PycharmProjects\Python\django\metanit
+python manage.py runserver

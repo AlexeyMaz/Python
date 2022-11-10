@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Выбор таблицы</title>
+</head>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+    <table class="table_center_by_css">
+        {{ form }}
+    </table>
+    <br>
+    <div class="button-wrapper">
+     <input type="submit" value="Авторизоваться!">
+    </div>
+    <style>
+    .table_center_by_css
+    {
+    width: 300px;
+    margin: auto;
+    }
+    .button-wrapper{
+    display: flex;
+    justify-content: center;
+    }
+    </style>
+</form>
+</body>
+</html>

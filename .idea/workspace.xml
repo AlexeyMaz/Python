@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f989479c-14c7-4dcd-8ea7-26738bb971b3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/django/metanit/hello/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django/metanit/hello/templates/authorization.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django/metanit/hello/templates/registration.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django/metanit/hello/templates/table_choice.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR15.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR15.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR16/cgi-bin/form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/option.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/table.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR16/cgi-bin/table.txt" beforeDir="false" afterPath="$PROJECT_DIR$/LR16/cgi-bin/table.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shipping.db" beforeDir="false" afterPath="$PROJECT_DIR$/Shipping.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -57,9 +60,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Al Maz\PycharmProjects\Python\django\metanit" />
+      <recent name="C:\Users\Al Maz\PycharmProjects\Python" />
+      <recent name="C:\Users\Al Maz\PycharmProjects\Python\django" />
       <recent name="C:\Users\Al Maz\PycharmProjects\Python\LR16" />
       <recent name="C:\Users\Al Maz\PycharmProjects\Python\LR16\cgi-bin" />
-      <recent name="C:\Users\Al Maz\PycharmProjects\Python\LR14" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
